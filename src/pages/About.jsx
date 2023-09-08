@@ -8,22 +8,22 @@ import canva from "../assets/icons_graphics/canva.png";
 
 export default function About() {
   return (
-    <div className="about  h-screen" id="about">
-      <h1 className="about-h1 pt-5 pb-4 text-center">About Me</h1>
+    <div className="about h-[1200px] md:h-screen" id="about">
+      <h1 className="about-h1 pt-5  text-center">About Me</h1>
 
-      <section className="flex justify-between pt-10">
-        <div className="skill w-1/2">
+      <section className="flex flex-col md:flex-row  justify-between pt-10">
+        <div className="skill w-full md:w-[49%]">
           <h2 className="text-2xl mb-3">My Skills -</h2>
-          <section className="skill2 mx-10">
+          <section className="skill2 mx-3 md:mx-10">
             <h3>Languages-</h3>
-            <div className="language grid grid-cols-5 gap-2 mb-3">
+            <div className="language grid grid-cols-4 gap-x-1 mb-3">
               <img src={c} alt="c" className="language-icon h-12" />
               <img src={cpp} alt="cpp" className="language-icon h-12" />
               <img src={python} alt="python" className="language-icon h-12" />
               <img src={java} alt="java" className="language-icon h-12" />
             </div>
             <h3>Web Technologies-</h3>
-            <div className="frontend-icons grid grid-cols-5 gap-2 mb-3">
+            <div className="frontend-icons grid grid-cols-4 gap-x-1 gap-y-4 mb-3">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg"
                 alt="html"
@@ -47,44 +47,42 @@ export default function About() {
                 alt="js"
                 className="frontend-icon h-12"
               />
-                  
+
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg"
                 alt="react"
                 className="frontend-icon h-12"
               />
-              
-            <img className="frontend-icon h-12" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" />
-                
-
-            <i class="devicon-express-original-wordmark text-6xl"></i>
-            
-            <img className="h-12" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain-wordmark.svg" />
-          
-                    
 
               <img
                 className="frontend-icon h-12"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg"
+              />
+
+              <i class="devicon-express-original-wordmark text-6xl"></i>
+
+              <img
+                className="h-12"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain-wordmark.svg"
               />
             </div>
             <h3>Tools-</h3>
-            <div className="other-icon grid grid-cols-5 gap-2 mb-3">
+            <div className="other-icon grid grid-cols-4 gap-x-1 mb-3">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg"
                 alt="vscode"
                 className="othericon h-12"
               />
-              
-            <i class="devicon-github-original-wordmark text-[44px]"></i>
-          
+
+              <i class="devicon-github-original-wordmark text-[44px]"></i>
+
               <img
                 className="othericon h-12"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg"
               />
             </div>
             <h3>Graphics-</h3>
-            <div className="graphics-icon grid grid-cols-5 gap-2 mb-3">
+            <div className="graphics-icon grid grid-cols-4 gap-x-1 mb-3">
               <img src={canva} alt="canva" className="graphics-icon h-12" />
 
               <img
@@ -103,9 +101,11 @@ export default function About() {
             </div>
           </section>
         </div>
-        <div className="line"></div>
-        <div className="educations">
-          <h1>Education-</h1>
+
+        <div className="line h-[485px]"></div>
+        {/* Education and Experience */}
+        <div className="educations ">
+          <h1 className="text-2xl md:pl-4">Education-</h1>
           <div className="education">
             <ul>
               <h2> 2020 - Present </h2>
@@ -138,10 +138,42 @@ export default function About() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Claret Scool,Sahanagar.
+                  Claret Scool, Sahanagar.
                 </a>
               </li>
             </ul>
+          </div>
+            <h1 className="text-2xl md:pl-4">Experience - </h1>
+            <div className="education">
+              <ul>
+                <h2>March, 2023 - Present </h2>
+                <li>
+                  <span>Frontend Developer - </span>
+                  <a
+                    href="https://uem.edu.in/uem-kolkata/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    PepHub
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <h1 className="text-2xl md:pl-4">Volunteering - </h1>
+            <div className="education">
+              <ul>
+                <h2>June, 2023 - Present </h2>
+                <li className="">
+                  <span>Chair - </span>
+                  <a
+                    href="https://uem.edu.in/uem-kolkata/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    IEEE Student Branch UEM Kolkata
+                  </a>
+                </li>
+              </ul>
           </div>
         </div>
       </section>

@@ -6,13 +6,11 @@
 }
 
 .educations {
-  width: 50%;
+  width: 49%;
 }
 .educations h1 {
   color: rgba(255, 196, 0, 0.716);
-  font-size: 20px;
   text-shadow: 0.5px 0.5px rgb(203, 201, 180);
-  padding-left: 20px;
 }
 
 .education {
@@ -63,35 +61,12 @@ a {
 }
 
 @media screen and (max-width: 780px) {
-  .about {
-    height: 1150px;
-    overflow: hidden;
-  }
-  .about-para {
-    padding-left: 10px;
-  }
-  .aboutcontainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 40px;
-  }
   .educations {
     padding-top: 20px;
     width: 100%;
   }
-  .educations h1 {
-    padding-left: 0px;
-  }
   .education {
     padding-left: 20px;
-  }
-  .skill {
-    width: 100%;
-  }
-
-  .skill2 {
-    padding-left: 10px;
   }
   .line {
     display: none;
