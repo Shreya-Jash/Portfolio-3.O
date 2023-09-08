@@ -1,10 +1,3 @@
-.contact{
-    height: 700px;
-    padding-top: 100px;
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-}
 .contact-det h1{
     color: rgba(221, 225, 10, 0.758);
     font-size: 40px;
@@ -22,7 +15,7 @@
 }
 .contact-ne{
     height: 40px;
-    width: 250px;
+    /* width: 250px; */
     border: none;
     border-radius: 20px;
     background-color:#f9f5f526;
