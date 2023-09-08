@@ -1,152 +1,99 @@
-.about{
-    height: 700px;
+.about-h1 {
+  color: rgba(221, 225, 10, 0.758);
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Domine", serif;
+}
+
+.educations {
+  width: 50%;
+}
+.educations h1 {
+  color: rgba(255, 196, 0, 0.716);
+  font-size: 20px;
+  text-shadow: 0.5px 0.5px rgb(203, 201, 180);
+  padding-left: 20px;
+}
+
+.education {
+  padding-top: 10px;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.education h2 {
+  font-size: 16px;
+  color: rgb(204, 183, 117);
+  font-weight: 600;
+}
+
+.education ul {
+  padding-bottom: 15px;
+}
+
+.education li {
+  padding-left: 20px;
+}
+
+.line {
+  width: 2px;
+  height: 300px;
+  background-color: wheat;
+}
+
+.skill h2 {
+  color: rgba(255, 196, 0, 0.716);
+  text-shadow: 0.5px 0.5px rgb(203, 201, 180);
+}
+.skill2 {
+  /* width: 350px; */
+  color: rgba(255, 255, 255, 0.496);
+}
+.skill h3 {
+  color: rgb(168, 156, 116);
+  padding-bottom: 10px;
+}
+
+li {
+  line-height: 30px;
+}
+a {
+  color: rgba(255, 255, 255, 0.496);
+}
+
+@media screen and (max-width: 780px) {
+  .about {
+    height: 1150px;
     overflow: hidden;
-}
-.about-h1{
-    color: rgba(221, 225, 10, 0.758);
-    font-size: 40px;
-    font-weight:bold;
-    padding-top: 20px;
-    padding-bottom: 15px;
-    text-align: center;
-    font-family: 'Domine', serif;;
-}
-.about-para{
-    color: rgba(255, 255, 255, 0.496);
-    align-items: center;
-}
-.quote{
-    color: rgba(255, 255, 0, 0.338);
-}
-
-.aboutcontainer{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 40px;
-}
-.educations{
-    width: 50%;
-}
-.educations h1{
-    color: rgba(255, 196, 0, 0.716);
-    font-size: 20px;
-    text-shadow: 0.5px 0.5px rgb(203, 201, 180);
-    padding-left: 20px;
-}
-
-.education{
-    padding-top: 10px;
-    padding-left: 50px;
+  }
+  .about-para {
+    padding-left: 10px;
+  }
+  .aboutcontainer {
     display: flex;
     flex-direction: column;
-}
-
-.education h2{
-    font-size: 16px;
-    color: rgb(204, 183, 117);
-    font-weight: 600;
-}
-
-.education ul{
-    padding-bottom: 15px;
-}
-
-.education li{
+    justify-content: space-between;
+    padding-top: 40px;
+  }
+  .educations {
+    padding-top: 20px;
+    width: 100%;
+  }
+  .educations h1 {
+    padding-left: 0px;
+  }
+  .education {
     padding-left: 20px;
-}
+  }
+  .skill {
+    width: 100%;
+  }
 
-.line{
-    width: 2px;
-    height: 300px;
-    background-color: wheat;
-}
-
-.skill{
-    width: 50%;
-}
-.skill h2{
-    color: rgba(255, 196, 0, 0.716);
-    font-size: 20px;
-    text-shadow: 0.5px 0.5px rgb(203, 201, 180);
-}
-.skill2{
-    padding-left: 40px;
-    width: 350px;
-    color:rgba(255, 255, 255, 0.496) ;
-}
-.skill h3{
-    color:rgb(168, 156, 116) ;
-    padding-bottom: 10px;
-}
-
-.language{
-    margin-bottom: 8px;
-    display: flex;
-}
-.language-icon{
-    height: 40px;
-}
-.graphics-icon{
-    height: 40px;
-    display: flex;
-   
-    margin-bottom: 8px;
-}
-.frontend-icons{
-    display: flex;
-
-    margin-bottom: 8px;
-}
-.frontend-icon{
-    height: 40PX;
-}
-.other-icon{
-    display: flex;
-
-}
-.othericon{
-    height: 40px;
-}
-li{
-    line-height: 30px;
-}
-a{
-    color: rgba(255, 255, 255, 0.496);
-}
-
-
-@media screen and (max-width : 780px) {
-    .about{
-        height: 1150px;
-        overflow: hidden;
-    }
-    .about-para{
-        padding-left: 10px;
-    }
-    .aboutcontainer{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-top: 40px;
-    }
-    .educations{
-        padding-top: 20px;
-        width: 100%;
-    }
-    .educations h1{
-        padding-left: 0px;
-    }
-    .education{
-        padding-left: 20px;
-    }
-    .skill{
-        width: 100%;
-    }
-
-    .skill2{
-        padding-left: 10px;
-    }
-    .line{
-        display: none;
-    }
+  .skill2 {
+    padding-left: 10px;
+  }
+  .line {
+    display: none;
+  }
 }

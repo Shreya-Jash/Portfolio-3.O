@@ -20,7 +20,7 @@ export default function App(){
         // <Router>
         <div className="app bg-black">
             <NavBar /> 
-            <div className="appContainer mx-24">
+            <div className="appContainer mx-4 md:mx-24">
                 <Element name="home">
                     <Home />
                 </Element>
