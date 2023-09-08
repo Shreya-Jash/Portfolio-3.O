@@ -5,8 +5,7 @@ import "./styles/about.css"
 import "./styles/contact.css"
 import "./styles/footer.css"
 import "./styles/navbar.css"
-import "./app.css"
-
+import "./App.css"
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
