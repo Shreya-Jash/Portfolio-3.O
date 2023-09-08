@@ -1,13 +1,13 @@
 import React from 'react'
-import data from '../components/Projectsdata'
+import data from '../data/Projectsdata'
 import Cards from "../components/Cards"
 import '../styles/project.css'
 
 function Project() {
   return (
-    <div className="projects" id='project'>
+    <div className="projects h-fit md:h-screen" id='project'>
       <p>My Works</p>
-        <section className='project-section'>
+        <section className='project-section  grid justify-items-center grid-col-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
           {data.map((item,index) => 
           {
               return (
