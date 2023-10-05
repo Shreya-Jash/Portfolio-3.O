@@ -146,7 +146,7 @@ export default function About() {
             <h1 className="text-2xl md:pl-4">Experience - </h1>
             <div className="education">
               <ul>
-                <h2>March, 2023 - Present </h2>
+                <h2>March, 2023 - August, 2023 </h2>
                 <li>
                   <span>Frontend Developer - </span>
                   <a
