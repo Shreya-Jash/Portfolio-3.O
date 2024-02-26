@@ -43,6 +43,7 @@
 
 .scrollup{
     position: fixed;
+    scroll-behavior: smooth;
     bottom: 20px;
     right: 30px;
     z-index: 99;

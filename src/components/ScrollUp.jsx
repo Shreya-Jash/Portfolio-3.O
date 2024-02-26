@@ -1,4 +1,3 @@
-import React from 'react'
 import scroll from "../assets/scrollup.png"
 
 export default function () {

@@ -1,12 +1,3 @@
-/* .main--text button{
-    background: -webkit-linear-gradient(rgb(191, 202, 114), rgb(121, 108, 4));
-} */
-.main-h1{
-    font-size: 60px;
-    background: -webkit-linear-gradient(rgb(191, 202, 114), rgb(121, 108, 4));
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 .wave{
     animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
   animation-duration: 2.5s;        /* Change to speed up or slow down */
@@ -26,62 +17,3 @@
   100% { transform: rotate( 0.0deg) }
 }
 
-.main-para{
-    font-size: 20px;
-    line-height: 2;
-}
-.myPic-sec{
-    padding-top: 40px;
-    /* padding-right: 140px; */
-}
-.myPic{
-    border-collapse: separate;
-    border-radius: 10px;
-    max-width: 100%;
-    height:560px;
-}
-
-.mypicmobile{
-    display: none;
-}
-
-@media screen and (max-width: 780px) {
-
-    .main--text{
-        width: 400px;
-    }
-    .main-h1{
-        font-size: 40px;
-    }
-    .main--text{
-        padding-top: 80px;
-    }
-    .myPic-sec{
-        padding-top: 40px;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    
-    .myPic-sec{
-        display: none;
-    }
-    .mypicmobile{
-        display:flex;
-        align-self: center;
-        justify-content: center;
-        max-width: 100%;
-        height: 160px;
-        border-radius: 20px;
-        margin: 30px;
-        /* overflow: hidden; */
-    }
-    .main-h1{
-        font-size: 25px;
-    }
-    .main-para
-    {
-        font-size: 20px;
-        color: rgba(255, 255, 255, 0.562);
-    }
-}

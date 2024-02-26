@@ -11,7 +11,7 @@ export default function NavBar(){
   }
 
   return(
-    <nav>
+    <nav className="m-2 md:m-4 lg:m-6 flex justify-normal bg-black">
       <button className="mobile-responsive" onClick={handleClick}>
           {/* {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>} */}
           <i className="fas fa-bars"></i>
@@ -29,6 +29,9 @@ export default function NavBar(){
         <Link to="project" smooth={true}>
           <li>Projects</li>
         </Link>
+        {/* <Link to="project" smooth={true}>
+          <li>Achivements</li>
+        </Link> */}
         <Link to="contact" smooth={true}>
           <li>Contact</li>
         </Link>
