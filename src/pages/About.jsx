@@ -105,6 +105,35 @@ export default function About() {
         <div className="line h-[485px]"></div>
         {/* Education and Experience */}
         <div className="educations ">
+        <h1 className="text-2xl md:pl-4">Experience - </h1>
+            <div className="education">
+            <ul>
+                <h2>June, 2024 - Present </h2>
+                <li>
+                  <span>Application Developer - </span>
+                  <a
+                    href="https://uem.edu.in/uem-kolkata/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Accenture
+                  </a>
+                </li>
+              </ul>
+              <ul>
+                <h2>March, 2023 - August, 2023 </h2>
+                <li>
+                  <span>Frontend Developer - </span>
+                  <a
+                    href="https://uem.edu.in/uem-kolkata/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    PepHub
+                  </a>
+                </li>
+              </ul>
+            </div>
           <h1 className="text-2xl md:pl-4">Education-</h1>
           <div className="education">
             <ul>
@@ -143,26 +172,11 @@ export default function About() {
               </li>
             </ul>
           </div>
-            <h1 className="text-2xl md:pl-4">Experience - </h1>
-            <div className="education">
-              <ul>
-                <h2>March, 2023 - August, 2023 </h2>
-                <li>
-                  <span>Frontend Developer - </span>
-                  <a
-                    href="https://uem.edu.in/uem-kolkata/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    PepHub
-                  </a>
-                </li>
-              </ul>
-            </div>
+            
             <h1 className="text-2xl md:pl-4">Volunteering - </h1>
             <div className="education">
               <ul>
-                <h2>June, 2023 - Present </h2>
+                <h2>June, 2023 - June, 2024 </h2>
                 <li className="">
                   <span>Chair - </span>
                   <a
