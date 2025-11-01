@@ -37,7 +37,8 @@ export default function Home() {
           </p>
           <a
             className="text-white "
-            href="https://drive.google.com/file/d/1DPqNwvmLAKWJuKZiaZPinjpXfQkqRBYT/view?usp=sharing"
+            href="https://drive.google.com/file/d/1ngtjrFGiYnMB44v2g6cNX1iBEO0UlsnM/view?usp=sharing"
+            target="_blank" rel="noreferrer"
           >
             <button className="rounded-lg w-32 h-9 mt-3 bg-gradient-to-r from-blue-500 to-yellow-500 hover:from-blue-800 hover:to-yellow-800">
               Resume

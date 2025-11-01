@@ -1,4 +1,3 @@
-import React from "react";
 
 import c from "../assets/icons_language/c.png";
 import cpp from "../assets/icons_language/cpp.png";
