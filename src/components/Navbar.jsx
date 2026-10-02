@@ -1,42 +1,70 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-scroll";
+import { useEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark, faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { profile } from "../data/profile";
 
-export default function NavBar(){
-  const [isMobile, setIsMobile]= useState(false)
+const navItems = [
+  { label: "Home", to: "home" },
+  { label: "Skills", to: "skills" },
+  { label: "Experience", to: "experience" },
+  { label: "Contact", to: "contact" },
+];
 
-  function handleClick()
-  {
-    setIsMobile(!isMobile)
-  }
+export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("home");
+  const navRef = useRef(null);
+  const toggleRef = useRef(null);
 
-  return(
-    <nav className="m-2 md:m-4 lg:m-6 flex justify-normal bg-black">
-      <button className="mobile-responsive" onClick={handleClick}>
-          {/* {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>} */}
-          <i className="fas fa-bars"></i>
-      </button>
-      <ul 
-        className={isMobile ? "nav-links-mobile" : "nav-links"}
-        onClick={() => setIsMobile(false)}
-      >
-        <Link to="home" smooth={true}>
-          <li>Home</li>
-        </Link>
-        <Link to="about" smooth={true} >
-          <li>About</li>
-        </Link>
-        <Link to="project" smooth={true}>
-          <li>Projects</li>
-        </Link>
-        {/* <Link to="project" smooth={true}>
-          <li>Achivements</li>
-        </Link> */}
-        <Link to="contact" smooth={true}>
-          <li>Contact</li>
-        </Link>
-      </ul>     
-    </nav>
-  )
+  useEffect(() => {
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape" && isOpen) {
+        setIsOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    const closeOnOutsideClick = (event) => {
+      if (!navRef.current?.contains(event.target)) setIsOpen(false);
+    };
+    const desktop = window.matchMedia("(min-width: 861px)");
+    const closeOnDesktop = () => { if (desktop.matches) setIsOpen(false); };
+    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("pointerdown", closeOnOutsideClick);
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("pointerdown", closeOnOutsideClick);
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const updateActive = () => {
+      const current = [...navItems].reverse().find((item) => document.getElementById(item.to)?.getBoundingClientRect().top <= 160);
+      setActive(current?.to || "home");
+    };
+    window.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
+    return () => window.removeEventListener("scroll", updateActive);
+  }, []);
+
+  return (
+    <header className="site-header">
+      <nav className="site-nav" aria-label="Main navigation" ref={navRef}>
+        <a className="site-nav__brand" href="#home" onClick={() => setIsOpen(false)}>
+          <span className="site-nav__monogram" aria-hidden="true">SJ<span>.</span></span>
+          <span>{profile.name}<small>Developer & automation builder</small></span>
+        </a>
+        <button className="mobile-responsive" type="button" ref={toggleRef} onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? "Close navigation" : "Open navigation"} aria-expanded={isOpen} aria-controls="navigation-links">
+          <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
+        </button>
+        <div id="navigation-links" className={`nav-menu${isOpen ? " nav-menu--open" : ""}`}>
+          <ul className="nav-links">
+            {navItems.map((item) => <li key={item.to}><a href={`#${item.to}`} aria-current={active === item.to ? "location" : undefined} onClick={() => setIsOpen(false)}>{item.label}</a></li>)}
+          </ul>
+          <a className="site-nav__cta" href={profile.resume} target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)}>Résumé <FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" /></a>
+        </div>
+      </nav>
+    </header>
+  );
 }
-

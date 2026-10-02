@@ -1,118 +1,23 @@
-.contact-det h1{
-    color: rgba(221, 225, 10, 0.758);
-    font-size: 40px;
-    font-weight:bold;
-    padding-top: 20px;
-    padding-bottom: 15px;
-    text-align: center;
-    font-family: 'Domine', serif;;
-}
-.contact-det2{
-    height: 80px;
-    display: flex;
-    justify-content:left;
-    column-gap: 60px;
-}
-.contact-ne{
-    height: 40px;
-    /* width: 250px; */
-    border: none;
-    border-radius: 20px;
-    background-color:#f9f5f526;
-    text-indent: 15px;
-    color: white;
-}
-.note{
-    text-indent: 5px;
-    padding: 12px 20px;
-    height: 350px;
-    width: 650px;
-    border: none;
-    border-radius: 20px;
-    background-color: #f9f5f526;
-    color: white;
-    box-sizing: border-box;
-}
-.button-sec{
-    padding-top: 20px;
-}
-.button{
-    border-radius: 20px;
-    height: 40px;
-    width: 150px;
-    font-size: 16px;
-   background-color: rgb(199, 190, 12);
-   font-weight: bold;
-}
-.button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-.button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-.button:hover span {
-    padding-right: 25px;
-  }
-  
-.button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
-.contact-p{
-    color: rgba(255, 255, 255, 0.496);
-    line-height: 30px;
-}
-
-@media screen and (max-width:820px) {
-    .contact{
-        padding-top: 10px;
-        padding-left: 0px;
-        display: block;
-        overflow-y: hidden;
-    }
-    .contact-det{
-        padding-left: 20px;
-        padding-bottom: 20px;
-    }
-    .note{
-        height: 170px;
-        width: 580px;
-    }
-}
-
-@media screen and (max-width:430px) {
-    .contact{
-        padding-top: 10px;
-        padding-left: 0px;
-        display: block;
-        overflow-y: hidden;
-        height: 740px;
-    }
-    .contact-det{
-        padding-left: 0px;
-    }
-    .contact-det2{
-        /* height: 80px; */
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-        padding-bottom: 10px;
-    }
-    .contact-ne{
-        width: 280px;
-    }
-    .note{
-        height: 170px;
-        width: 280px;
-    }
-}
+.contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 5vw, 4rem); padding: 3.5rem 0 4rem; align-items: start; border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 1rem; }
+.contact-det { min-width: 0; }
+.contact-det h2 { margin: 1rem 0 0; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.15; letter-spacing: -0.035em; font-weight: 600; }
+.contact-p { margin: 1.2rem 0 1.6rem; color: #b5c1cf; line-height: 1.75; font-size: 0.95rem; }
+.contact__email { display: inline-flex; align-items: center; gap: 0.7rem; max-width: 100%; min-height: 48px; color: #f4d074; font-size: clamp(0.8rem, 1.4vw, 0.95rem); text-decoration: none; }
+.contact__email span { min-width: 0; overflow-wrap: anywhere; }
+.contact__email svg { flex-shrink: 0; }
+.links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+.a2 { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 44px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.6rem; background: rgba(12, 23, 40, 0.55); padding: 0.65rem 0.9rem; color: #c0d3e5; text-decoration: none; font-size: 0.85rem; }
+.a2:hover { border-color: rgba(125, 211, 252, 0.4); color: #7dd3fc; }
+.form-con { display: grid; gap: 1rem; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.2rem; background: rgba(9, 17, 29, 0.68); min-width: 0; }
+.form-con h3 { margin: 0 0 0.2rem; font-size: 1.1rem; font-weight: 600; }
+.form-con label { display: grid; gap: 0.5rem; color: #c0d3e5; font-size: 0.8rem; min-width: 0; }
+.contact-det2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.contact-ne, .note { width: 100%; min-width: 0; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 0.65rem; background: rgba(255, 255, 255, 0.025); padding: 0.8rem; color: #f6efe3; font-size: 0.9rem; }
+.contact-ne { min-height: 48px; }
+.note { min-height: 150px; resize: vertical; }
+.contact-ne::placeholder, .note::placeholder { color: #8291a5; }
+.form-con .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; width: 100%; border: 0; border-radius: 0.7rem; padding: 0.75rem 1rem; background: linear-gradient(135deg, #f4d074, #e4a929); color: #07111f; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+.form-con .button:disabled { opacity: 0.65; cursor: wait; }
+.contact__status { margin: 0; font-size: 0.85rem; line-height: 1.6; color: #c0d3e5; }
+@media (max-width: 860px) { .contact { gap: 1.5rem; } .contact-det2 { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .contact { grid-template-columns: 1fr; padding-block: 2.5rem; } .form-con { padding: 1.1rem; } }

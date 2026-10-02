@@ -1,58 +1,48 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faFileLines, faRobot, faBrain, faChartLine } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import myPic from "../assets/myPic.png";
+import { profile } from "../data/profile";
 import "../styles/home.css";
-import Typewriter from "typewriter-effect";
+
+const focusAreas = [
+  { title: "Automation", caption: "Simplify everyday tasks", icon: faRobot },
+  { title: "Intelligent agents", caption: "Connect tools and workflows", icon: faBrain },
+  { title: "Observability", caption: "Turn signals into insight", icon: faChartLine },
+];
 
 export default function Home() {
   return (
-    <div className="home flex justify-between h-[500px]" id="home">
-      <div className="div1 flex justify-center items-center">
-        <div className="main--text">
-          <h1 className="text-3xl mb-4">
-            Hi, I'm <span className="myname text-amber-300">Shreya Jash</span>
-            <span className="wave">👋</span>
-          </h1>
-          <section className="mypicmobile flex justify-center items-center my-3 md:my-0 md:hidden">
-            <img
-              src={myPic}
-              className="myPicmobile h-[200px] rounded-xl"
-              alt="myPicture"
-            />
-          </section>
-          <h1 className="text-5xl mb-4 bg-gradient-to-r from-yellow-200 to-yellow-600 bg-clip-text text-transparent">
-            <Typewriter
-              options={{
-                strings: [
-                  "Full-Stack Developer",
-                  "Graphics Designer",
-                  "Problem Solver",
-                  "Painter",
-                ],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </h1>
-          <p className="main-para leading-8 text-xl italic">
-            What truly sets me apart is my love for blending art with code 💛
-          </p>
-          <a
-            className="text-white "
-            href="https://drive.google.com/file/d/1ngtjrFGiYnMB44v2g6cNX1iBEO0UlsnM/view?usp=sharing"
-            target="_blank" rel="noreferrer"
-          >
-            <button className="rounded-lg w-32 h-9 mt-3 bg-gradient-to-r from-blue-500 to-yellow-500 hover:from-blue-800 hover:to-yellow-800">
-              Resume
-            </button>
-          </a>
+    <section className="home" id="home" aria-labelledby="home-title">
+      <div className="home__intro">
+        <div className="home__copy">
+          <p className="home__eyebrow"><span aria-hidden="true" />{profile.role} at {profile.company}</p>
+          <h1 id="home-title" className="home__title">Hi, I’m Shreya.<br /><span>I make workflows smarter.</span></h1>
+          <p className="home__description">Automation, AI agents, and observability — built around real business needs.</p>
+          <div className="home__actions">
+            <a className="home__button home__button--primary" href="#experience">My experience <FontAwesomeIcon icon={faArrowRight} /></a>
+            <a className="home__button home__button--secondary" href={profile.resume} target="_blank" rel="noreferrer">View résumé <FontAwesomeIcon icon={faFileLines} /></a>
+          </div>
+          <div className="home__socials">
+            <a href={profile.linkedin} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedinIn} />LinkedIn</a>
+            <a href={profile.github} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} />GitHub</a>
+            <a href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
+        <figure className="home__portrait-card">
+          <img src={myPic} className="home__portrait" alt="Shreya Jash" />
+          <figcaption><strong>{profile.name}</strong><span>{profile.role}</span></figcaption>
+          <span className="home__portrait-label">Code. Automate. Improve.</span>
+        </figure>
       </div>
-      <section className="myPic-sec hidden md:flex justify-center items-center">
-        <img
-          src={myPic}
-          className="myPic md: h-1/2 lg:h-[360px] rounded-xl"
-          alt="myPicture"
-        />
-      </section>
-    </div>
+      <div className="home__focus" aria-label="Areas of focus">
+        {focusAreas.map((area) => (
+          <div className="home__focus-item" key={area.title}>
+            <FontAwesomeIcon icon={area.icon} aria-hidden="true" />
+            <div><h2>{area.title}</h2><p>{area.caption}</p></div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
