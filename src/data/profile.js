@@ -3,7 +3,7 @@ export const profile = {
   role: "Application Developer",
   company: "Accenture",
   email: "shreyajash2001@gmail.com",
-  resume: "https://drive.google.com/file/d/1ngtjrFGiYnMB44v2g6cNX1iBEO0UlsnM/view?usp=sharing",
+  resume: "https://drive.google.com/file/d/1qkkYLK6xLNwA5qhdg70DH7FSASgvYcrA/view?usp=sharing",
   github: "https://github.com/Shreya-Jash",
   linkedin: "https://www.linkedin.com/in/shreya-jash-a140191b8/",
 };
