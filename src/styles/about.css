@@ -1,74 +1,36 @@
-.about-h1 {
-  color: rgba(221, 225, 10, 0.758);
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Domine", serif;
-}
-
-.educations {
-  width: 49%;
-}
-.educations h1 {
-  color: rgba(255, 196, 0, 0.716);
-  text-shadow: 0.5px 0.5px rgb(203, 201, 180);
-}
-
-.education {
-  padding-top: 10px;
-  padding-left: 50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.education h2 {
-  font-size: 16px;
-  color: rgb(204, 183, 117);
-  font-weight: 600;
-}
-
-.education ul {
-  padding-bottom: 15px;
-}
-
-.education li {
-  padding-left: 20px;
-}
-
-.line {
-  width: 2px;
-  height: 300px;
-  background-color: wheat;
-}
-
-.skill h2 {
-  color: rgba(255, 196, 0, 0.716);
-  text-shadow: 0.5px 0.5px rgb(203, 201, 180);
-}
-.skill2 {
-  /* width: 350px; */
-  color: rgba(255, 255, 255, 0.496);
-}
-.skill h3 {
-  color: rgb(168, 156, 116);
-  padding-bottom: 10px;
-}
-
-li {
-  line-height: 30px;
-}
-a {
-  color: rgba(255, 255, 255, 0.496);
-}
-
-@media screen and (max-width: 780px) {
-  .educations {
-    padding-top: 20px;
-    width: 100%;
-  }
-  .education {
-    padding-left: 20px;
-  }
-  .line {
-    display: none;
-  }
+.experience { padding: 3.5rem 0; }
+.experience-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr); gap: 2rem; align-items: start; }
+.experience-timeline { padding: 0 0 0 1.5rem; margin: 0; list-style: none; border-left: 1px solid rgba(125, 211, 252, 0.25); }
+.experience-item { position: relative; padding: 1.6rem; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.2rem; background: rgba(9, 17, 29, 0.68); }
+.experience-item + .experience-item { margin-top: 1.25rem; }
+.experience-item::before { content: ""; position: absolute; left: -1.85rem; top: 2rem; width: 10px; height: 10px; border-radius: 50%; background: #7dd3fc; box-shadow: 0 0 0 5px #0c1728; }
+.experience-item--current::before { background: #f4d074; }
+.experience-item--current { border-color: rgba(244, 208, 116, 0.2); }
+.experience-item__meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; color: #aab8c9; font-size: 0.75rem; }
+.experience-item__badge { color: #f4d074; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(244, 208, 116, 0.1); }
+.experience-item h3 { margin: 1rem 0 0.4rem; font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; }
+.experience-item__company { display: inline-flex; align-items: center; gap: 0.5rem; padding-block: 0.3rem; color: #7dd3fc; font-size: 0.95rem; text-decoration: none; }
+.experience-item__company svg { font-size: 0.65rem; }
+.experience-item p { margin: 0.75rem 0 1rem; color: #b5c1cf; font-size: 0.9rem; line-height: 1.75; }
+.experience-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+.experience-tags li { padding: 0.3rem 0.6rem; border: 1px solid rgba(125, 211, 252, 0.15); border-radius: 0.4rem; color: #c0d3e5; font-size: 0.7rem; }
+.experience-aside { display: grid; gap: 1rem; }
+.background-card { padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.2rem; background: rgba(9, 17, 29, 0.68); }
+.background-card__icon { color: #f4d074; font-size: 1.25rem; margin-bottom: 1rem; }
+.background-card h3 { margin: 0 0 0.8rem; font-size: 0.75rem; color: #aab8c9; text-transform: uppercase; letter-spacing: 0.1em; }
+.background-card h4 { margin: 0 0 0.5rem; font-size: 1rem; line-height: 1.5; font-weight: 600; }
+.background-card a { color: #7dd3fc; text-decoration: none; font-size: 0.85rem; line-height: 1.7; }
+.background-card p { color: #aab8c9; font-size: 0.75rem; margin: 0.7rem 0 0; }
+.education-details { margin-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.7rem; }
+.education-details summary { cursor: pointer; padding-block: 0.4rem; color: #c0d3e5; font-size: 0.8rem; }
+.education-details ul { padding: 0; margin: 1rem 0 0; list-style: none; display: grid; gap: 1rem; }
+.education-details li { display: grid; gap: 0.3rem; }
+.education-details li > span { color: #aab8c9; font-size: 0.75rem; }
+@media (max-width: 860px) { .experience-layout { grid-template-columns: 1fr; } .experience-aside { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .experience { padding: 2.5rem 0; }
+  .experience-aside { grid-template-columns: 1fr; }
+  .experience-item { padding: 1.2rem; }
+  .experience-timeline { padding-left: 1.2rem; }
+  .experience-item::before { left: -1.55rem; }
 }

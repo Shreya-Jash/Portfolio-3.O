@@ -1,8 +1,19 @@
-# React + Vite
+# Shreya Jash — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React portfolio focused on automation, AI workflows, and observability. The page includes an introduction, skills with icons, an experience timeline, education and leadership, and contact options.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install dependencies with `npm install`, then run `npm run dev`. Open the local URL printed by Vite.
+
+## Checks
+
+- `npm run lint` — ESLint checks.
+- `npm run build` — production build in `dist`.
+- `npm run preview` — preview the production build.
+
+## Update content
+
+Edit `src/data/profile.js` for profile links, skills, experience, and education. Skill icons are mapped in `src/pages/Skills.jsx`. The animated background lives in `src/App.css`.
+
+The contact form uses the existing NoCodeAPI endpoint in `src/pages/Contact.jsx`; direct email and social links are also available. Browser verification uses simulated responses without submitting messages to that service.
