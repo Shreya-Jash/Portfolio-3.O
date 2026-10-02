@@ -16,8 +16,8 @@
 .contact-ne { min-height: 48px; }
 .note { min-height: 150px; resize: vertical; }
 .contact-ne::placeholder, .note::placeholder { color: #8291a5; }
-.button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; width: 100%; border: 0; border-radius: 0.7rem; padding: 0.75rem 1rem; background: linear-gradient(135deg, #f4d074, #e4a929); color: #07111f; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
-.button:disabled { opacity: 0.65; cursor: wait; }
+.form-con .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; width: 100%; border: 0; border-radius: 0.7rem; padding: 0.75rem 1rem; background: linear-gradient(135deg, #f4d074, #e4a929); color: #07111f; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+.form-con .button:disabled { opacity: 0.65; cursor: wait; }
 .contact__status { margin: 0; font-size: 0.85rem; line-height: 1.6; color: #c0d3e5; }
 @media (max-width: 860px) { .contact { gap: 1.5rem; } .contact-det2 { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .contact { grid-template-columns: 1fr; padding-block: 2.5rem; } .form-con { padding: 1.1rem; } }
