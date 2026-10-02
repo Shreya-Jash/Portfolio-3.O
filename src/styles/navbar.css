@@ -1,90 +1,22 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    
-   /* background-image:url("pink-paper-background-texture.jpg") ;*/
-
+.site-header { position: sticky; top: 0; z-index: 20; padding: 0.8rem 0 0; }
+.site-nav { position: relative; width: min(1120px, calc(100% - 2rem)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 1rem; background: rgba(7, 17, 31, 0.9); backdrop-filter: blur(18px); box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); padding: 0.75rem 1rem; }
+.site-nav__brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; flex-shrink: 0; }
+.site-nav__monogram { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.08em; }
+.site-nav__monogram > span { color: #f4d074; }
+.site-nav__brand > span:last-child { font-size: 0.85rem; font-weight: 600; }
+.site-nav__brand small { display: block; margin-top: 0.15rem; font-size: 0.65rem; font-weight: 400; color: #aab8c9; }
+.nav-menu { display: flex; align-items: center; gap: 1rem; }
+.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; padding: 0; margin: 0; }
+.nav-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.7rem 0.85rem; font-size: 0.85rem; text-decoration: none; color: #b5c1cf; border-radius: 0.6rem; transition: background 180ms ease, color 180ms ease; }
+.nav-links a:hover, .nav-links a[aria-current] { background: rgba(125, 211, 252, 0.08); color: #7dd3fc; }
+.site-nav__cta { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 44px; padding: 0.6rem 0.85rem; font-size: 0.8rem; text-decoration: none; color: #f4d074; border: 1px solid rgba(244, 208, 116, 0.25); border-radius: 0.65rem; }
+.site-nav__cta svg { font-size: 0.7rem; }
+.mobile-responsive { display: none; width: 44px; height: 44px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.6rem; background: rgba(255, 255, 255, 0.04); color: #e6edf5; cursor: pointer; }
+@media (max-width: 860px) {
+  .mobile-responsive { display: inline-flex; align-items: center; justify-content: center; }
+  .nav-menu { display: none; position: absolute; top: calc(100% + 0.5rem); inset-inline: 0; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; background: #0a1220; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3); max-height: calc(100dvh - 110px); overflow-y: auto; }
+  .nav-menu--open { display: grid; gap: 0.75rem; }
+  .nav-links { flex-direction: column; align-items: stretch; gap: 0.2rem; }
+  .nav-links a { width: 100%; padding: 0.8rem 1rem; }
 }
-nav{
-    height: 60px;
-    border-radius: 0px 25px 0px 25px;
-    font-style: bold;
-    font-family: "Poppins", sans-serif;
-    border: 1px solid rgb(199, 190, 12);
-}
-
-.nav-links{
-    display: flex;
-    padding-left: 20px;
-}
-nav a{
-    cursor: pointer;
-    /* float: left; */
-    color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0px 16px;
-    font-size: 20px;
-    text-decoration: none;
-    list-style: none;
-    margin: 0;
-}
-.active{
-    color: rgb(199, 190, 12);
-}
-nav a:hover{
-    border-radius: 10px;
-    background-color: rgb(172, 189, 19);
-    color: rgb(0, 10, 7);
-    font-style: italic;
-}
-
-.mobile-responsive{
-    display: none; /*hides button*/
-}
-
-@media screen and (max-width: 780px) {
-    .nav-links{
-        display: none;
-    }
-
-    .mobile-responsive{
-        display: block;
-        position: absolute;
-        font-size: 20px;
-        margin-top: 10px;
-        left: 25px;
-        overflow: hidden;
-    }
-
-    .nav-links-mobile{
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        top: 40px;
-        background-color: rgba(157, 171, 55, 0.975);
-        transition: all 0.5s ease-out;
-        width:50%;
-        z-index: 10;
-        border: 1px solid rgb(199, 190, 12);
-        border-radius: 6px;
-    }
-    nav a{
-        float: none;
-        color:white;
-        text-align: center;
-        padding: 14px 16px;
-        font-size: 20px;
-        text-decoration: none;
-    }
-    nav a:hover{
-        border-radius: 20px;
-        background-color: rgba(255, 255, 255, 0);
-        color: rgb(0, 10, 7);
-        font-style: italic;
-    }
-    
-}
+@media (max-width: 400px) { .site-nav { padding: 0.65rem 0.75rem; } .site-nav__brand small { font-size: 0.6rem; } }

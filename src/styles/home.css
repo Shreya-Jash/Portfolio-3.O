@@ -1,19 +1,40 @@
-.wave{
-    animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
-  animation-duration: 2.5s;        /* Change to speed up or slow down */
-  animation-iteration-count: infinite;  /* Never stop waving :) */
-  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
-  display: inline-block;
+.home { padding: clamp(2.5rem, 7vw, 6rem) 0 2rem; }
+.home__intro { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.home__copy { min-width: 0; }
+.home__eyebrow { display: inline-flex; align-items: center; gap: 0.65rem; margin: 0 0 1.5rem; color: #d8e7ee; font-size: 0.85rem; }
+.home__eyebrow > span { width: 7px; height: 7px; flex-shrink: 0; background: #f4d074; border-radius: 50%; box-shadow: 0 0 15px rgba(244, 208, 116, 0.35); }
+.home__title { margin: 0; font-size: clamp(2.5rem, 5.2vw, 4.5rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.045em; }
+.home__title > span { background: linear-gradient(120deg, #d7e7ff, #7dd3fc 45%, #f4d074); background-clip: text; -webkit-background-clip: text; color: transparent; }
+.home__description { max-width: 43ch; margin: 1.5rem 0 0; color: #b5c1cf; font-size: 1.05rem; line-height: 1.8; }
+.home__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.home__button { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; min-height: 48px; padding: 0.85rem 1.2rem; border-radius: 0.8rem; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: transform 180ms ease, background 180ms ease; }
+.home__button:hover { transform: translateY(-2px); }
+.home__button--primary { background: linear-gradient(135deg, #f4d074, #e4a929); color: #07111f; }
+.home__button--secondary { border: 1px solid rgba(125, 211, 252, 0.25); background: rgba(12, 23, 40, 0.65); color: #e6edf5; }
+.home__socials { display: flex; flex-wrap: wrap; gap: 1.3rem; margin-top: 1.5rem; }
+.home__socials a { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; color: #aab8c9; font-size: 0.85rem; text-decoration: none; }
+.home__socials a:hover { color: #7dd3fc; }
+.home__portrait-card { position: relative; margin: 0; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 1.5rem; padding: 0.65rem; background: rgba(10, 18, 32, 0.7); box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25); }
+.home__portrait { width: 100%; aspect-ratio: 4 / 4.6; border-radius: 1rem; object-fit: cover; object-position: center top; display: block; }
+.home__portrait-card figcaption { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem; padding: 1rem 0.4rem 0.4rem; font-size: 0.85rem; }
+.home__portrait-card figcaption span { color: #aab8c9; font-size: 0.75rem; }
+.home__portrait-label { position: absolute; right: -1rem; bottom: 5rem; border: 1px solid rgba(244, 208, 116, 0.25); border-radius: 0.7rem; background: #0c1728; padding: 0.8rem 1rem; font-size: 0.75rem; letter-spacing: 0.03em; color: #f4d074; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
+.home__focus { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; border-block: 1px solid rgba(255, 255, 255, 0.09); padding: 1.5rem 0; margin-top: clamp(2.5rem, 6vw, 5rem); }
+.home__focus-item { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+.home__focus-item > svg { color: #7dd3fc; width: 22px; flex-shrink: 0; }
+.home__focus-item h2 { margin: 0; font-size: 0.95rem; font-weight: 600; }
+.home__focus-item p { margin: 0.3rem 0 0; font-size: 0.8rem; color: #aab8c9; line-height: 1.5; }
+@media (max-width: 860px) {
+  .home__intro { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 2rem; }
+  .home__title { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+  .home__portrait-card figcaption { flex-direction: column; align-items: start; }
+  .home__portrait-label { right: 0.5rem; }
 }
-
-@keyframes wave-animation {
-    0% { transform: rotate( 0.0deg) }
-   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
-   20% { transform: rotate(-8.0deg) }
-   30% { transform: rotate(14.0deg) }
-   40% { transform: rotate(-4.0deg) }
-   50% { transform: rotate(10.0deg) }
-   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
-  100% { transform: rotate( 0.0deg) }
+@media (max-width: 640px) {
+  .home__intro { grid-template-columns: 1fr; }
+  .home__title { font-size: clamp(2.6rem, 10vw, 3.5rem); }
+  .home__portrait-card { width: min(100%, 360px); margin-inline: auto; }
+  .home__focus { grid-template-columns: 1fr; gap: 1.25rem; }
+  .home__actions { gap: 0.6rem; }
+  .home__button { padding-inline: 1rem; }
 }
-

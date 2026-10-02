@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { profile } from "../data/profile";
 
 export default function Contact() {
   const [data, setData] = useState({
@@ -6,6 +10,8 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const { name, email, message } = data;
 
   const handleChange = (e) =>
@@ -13,93 +19,92 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSending) return;
+    setIsSending(true);
+    setStatus("Sending your message...");
+
     try {
-      await fetch("https://v1.nocodeapi.com/shreyajash/google_sheets/boqDdACYLErAsJWc?tabId=Sheet1", {
+      const response = await fetch("https://v1.nocodeapi.com/shreyajash/google_sheets/boqDdACYLErAsJWc?tabId=Sheet1", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify([[name, email, message]]),
       });
-      await Response.json()
-      setData({...data,name: " ",email: "",message: " "})
-    } catch (err) {
-      console.log(err);
+
+      if (!response.ok) {
+        throw new Error("Message could not be sent.");
+      }
+
+      setData({ name: "", email: "", message: "" });
+      setStatus("Thanks for reaching out. Your message has been sent.");
+    } catch {
+      setStatus("Something went wrong. Please email me directly instead.");
+    } finally {
+      setIsSending(false);
     }
   };
   return (
-    <div
-      className="contact h-screen pt-24 flex flex-col md:flex-row md:justify-between"
-      id="contact"
-    >
-      <div className="contact-det text-center">
-        <h1>Want to connect?</h1>
-        <p className="contact-p">
-          I would love to hear from you...😊
-          <br />
-          Email -{" "}
-          <a href="shreyajash2001@gmail.com">shreyajash2001@gmail.com</a>
-          <div className="links justify-center">
-            <a
-              href="https://github.com/Shreya-Jash"
-              className="a2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i class="devicon-github-original"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/shreya-jash-a140191b8/"
-              className="a2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i class="devicon-linkedin-plain"></i>
-            </a>
-            <a
-              href="https://twitter.com/jash_shre"
-              className="a2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i class="devicon-twitter-original"></i>
-            </a>
-          </div>
-        </p>
+    <section className="contact" id="contact" aria-labelledby="contact-title">
+      <div className="contact-det">
+        <span className="section-eyebrow">03 / Contact</span>
+        <h2 id="contact-title">Let’s make<br />something better.</h2>
+        <p className="contact-p">Have an opportunity or an idea? I’d love to hear it.</p>
+        <a className="contact__email" href={`mailto:${profile.email}`}><FontAwesomeIcon icon={faEnvelope} aria-hidden="true" /><span>{profile.email}</span><FontAwesomeIcon icon={faArrowRight} aria-hidden="true" /></a>
+        <div className="links">
+          <a href={profile.linkedin} className="a2" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedinIn} />LinkedIn</a>
+          <a href={profile.github} className="a2" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} />GitHub</a>
+        </div>
       </div>
-      <form className="form-con" onSubmit={handleSubmit}>
-        <section className="contact-det2 flex justify-center md:justify-between">
+
+      <form className="form-con" onSubmit={handleSubmit} aria-busy={isSending}>
+        <h3>Send a note</h3>
+        <section className="contact-det2">
+          <label htmlFor="contact-name">Your name
           <input
+            id="contact-name"
+            autoComplete="name"
             type="text"
             placeholder="Name"
-            className="contact-ne w-full md:w-72 "
+            className="contact-ne"
             name="name"
             value={name}
             onChange={handleChange}
+            required
           />
+          </label>
+          <label htmlFor="contact-email">Email address
           <input
+            id="contact-email"
+            autoComplete="email"
             type="email"
             placeholder="Your Email"
-            className="contact-ne w-full md:w-72"
+            className="contact-ne"
             name="email"
             value={email}
             onChange={handleChange}
+            required
           />
+          </label>
         </section>
+        <label htmlFor="contact-message">Your message
         <textarea
-          type="text"
-          placeholder="Your Note"
-          className="note w-full"
+          id="contact-message"
+          placeholder="Tell me what you have in mind…"
+          className="note"
           name="message"
           value={message}
           onChange={handleChange}
+          required
         />
+        </label>
         <section className="button-sec">
-          <button className="button">
-            <span>Send</span>
+          <button className="button" type="submit" disabled={isSending}>
+            <span>{isSending ? "Sending…" : "Send message"}</span>
           </button>
         </section>
+        {status ? <p className="contact__status" role="status" aria-live="polite">{status}</p> : null}
       </form>
-    </div>
+    </section>
   );
 }
