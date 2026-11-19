@@ -15,6 +15,17 @@ export default function NavBar() {
   const [active, setActive] = useState("home");
   const navRef = useRef(null);
   const toggleRef = useRef(null);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 861px)");
+    const updateMenuAccess = () => {
+      if (menuRef.current) menuRef.current.inert = !desktop.matches && !isOpen;
+    };
+    updateMenuAccess();
+    desktop.addEventListener("change", updateMenuAccess);
+    return () => desktop.removeEventListener("change", updateMenuAccess);
+  }, [isOpen]);
 
   useEffect(() => {
     const closeOnEscape = (event) => {
@@ -58,7 +69,7 @@ export default function NavBar() {
         <button className="mobile-responsive" type="button" ref={toggleRef} onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? "Close navigation" : "Open navigation"} aria-expanded={isOpen} aria-controls="navigation-links">
           <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
         </button>
-        <div id="navigation-links" className={`nav-menu${isOpen ? " nav-menu--open" : ""}`}>
+        <div ref={menuRef} id="navigation-links" className={`nav-menu${isOpen ? " nav-menu--open" : ""}`}>
           <ul className="nav-links">
             {navItems.map((item) => <li key={item.to}><a href={`#${item.to}`} aria-current={active === item.to ? "location" : undefined} onClick={() => setIsOpen(false)}>{item.label}</a></li>)}
           </ul>

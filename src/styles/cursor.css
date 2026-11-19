@@ -1,0 +1,70 @@
+.theme-cursor { display: none; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.theme-cursor-on, html.theme-cursor-on * { cursor: none !important; }
+  .theme-cursor {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .theme-cursor.is-visible { opacity: 1; }
+  .theme-cursor__circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(189, 231, 250, 0.85);
+    background: rgba(125, 211, 252, 0.05);
+    box-shadow: 0 0 10px rgba(125, 211, 252, 0.12), inset 0 0 6px rgba(125, 211, 252, 0.06);
+    transform: translate(-50%, -50%);
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+  }
+  .is-interactive .theme-cursor__circle {
+    transform: translate(-50%, -50%) scale(1.5);
+    border-color: rgba(244, 208, 116, 0.85);
+    background: rgba(244, 208, 116, 0.08);
+    box-shadow: 0 0 14px rgba(244, 208, 116, 0.12);
+  }
+  .is-pressed .theme-cursor__circle { transform: translate(-50%, -50%) scale(0.8); }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .theme-cursor__core {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 94%, 50% 72%, 21% 94%, 32% 57%, 2% 35%, 39% 35%);
+    background: #d8f4ff;
+    animation: cursor-star-turn 8s linear infinite;
+    box-shadow: 0 0 7px rgba(125, 211, 252, 0.6);
+    transform: translate(-50%, -50%);
+    transition: background 200ms ease, transform 180ms ease, box-shadow 200ms ease;
+  }
+  .is-interactive .theme-cursor__core {
+    background: #f4d074;
+    box-shadow: 0 0 9px rgba(244, 208, 116, 0.6);
+    animation: cursor-star-hover 3s linear infinite;
+  }
+  .is-pressed .theme-cursor__core {
+    animation: none;
+    transform: translate(-50%, -50%) scale(0.65);
+  }
+}
+@keyframes cursor-star-turn {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes cursor-star-hover {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.3); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+}
