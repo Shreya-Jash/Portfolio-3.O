@@ -18,7 +18,7 @@ export default function Home() {
         <div className="home__copy">
           <p className="home__eyebrow"><span aria-hidden="true" />{profile.role} at {profile.company}</p>
           <h1 id="home-title" className="home__title">Hi, I’m Shreya.<br /><span>I make workflows smarter.</span></h1>
-          <p className="home__description">Automation, AI agents, and observability — built around real business needs.</p>
+          <p className="home__description">I build with Python, automation tools, and React — connecting enterprise workflows with thoughtful interfaces and intelligent agents.</p>
           <div className="home__actions">
             <a className="home__button home__button--primary" href="#experience">My experience <FontAwesomeIcon icon={faArrowRight} /></a>
             <a className="home__button home__button--secondary" href={profile.resume} target="_blank" rel="noreferrer">View résumé <FontAwesomeIcon icon={faFileLines} /></a>
@@ -30,7 +30,22 @@ export default function Home() {
           </div>
         </div>
         <figure className="home__portrait-card">
-          <img src={myPic} className="home__portrait" alt="Shreya Jash" />
+          <div className="home__portrait-stage">
+            <img src={myPic} className="home__portrait" alt="Shreya Jash" />
+            <span className="home__portrait-shine" aria-hidden="true" />
+            <span className="home__assembly" aria-hidden="true">
+              {Array.from({ length: 36 }, (_, index) => {
+                const angle = index / 36 * Math.PI * 2;
+                return <i key={index} style={{
+                  "--ring-x": `${Math.cos(angle) * 70}px`,
+                  "--ring-y": `${Math.sin(angle) * 70}px`,
+                  "--scatter-x": `${Math.cos(angle) * 210}px`,
+                  "--scatter-y": `${Math.sin(angle) * 260}px`,
+                  "--dot-delay": `${index * 16}ms`,
+                }} />;
+              })}
+            </span>
+          </div>
           <figcaption><strong>{profile.name}</strong><span>{profile.role}</span></figcaption>
           <span className="home__portrait-label">Code. Automate. Improve.</span>
         </figure>

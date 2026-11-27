@@ -213,3 +213,106 @@
     top: 58%;
   }
 }
+
+/* Soft atmospheric light: bounded layers animate only transform and opacity. */
+.app__background { overflow: hidden; isolation: isolate; }
+.app__aurora {
+  position: absolute;
+  width: min(85vw, 1050px);
+  height: min(65vh, 600px);
+  border-radius: 50%;
+  filter: blur(55px);
+  opacity: 0.6;
+  transform: rotate(-25deg);
+}
+.app__aurora--cyan {
+  left: -22%;
+  top: -12%;
+  background: radial-gradient(ellipse at center, rgba(61, 180, 210, 0.17), rgba(37, 99, 160, 0.09) 40%, transparent 70%);
+}
+.app__aurora--gold {
+  right: -25%;
+  bottom: -12%;
+  background: radial-gradient(ellipse at center, rgba(244, 208, 116, 0.13), rgba(139, 113, 65, 0.06) 45%, transparent 70%);
+}
+.app__particles { position: absolute; inset: 0; }
+.app__particle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #b4e5f5;
+  opacity: 0.25;
+  box-shadow: 0 0 7px 1px rgba(125, 211, 252, 0.2);
+}
+.app__particle:nth-child(3n) {
+  width: 3px;
+  height: 3px;
+  background: #f4d074;
+  box-shadow: 0 0 9px rgba(244, 208, 116, 0.25);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .app__aurora--cyan { animation: aurora-drift 28s ease-in-out infinite alternate; }
+  .app__aurora--gold { animation: aurora-drift 34s ease-in-out -12s infinite alternate-reverse; }
+  .app__glow--one { animation: ambient-breathe 19s ease-in-out infinite alternate; }
+  .app__glow--two { animation: ambient-breathe 24s ease-in-out -8s infinite alternate-reverse; }
+  .app__particle { animation: dust-drift var(--duration) ease-in-out var(--delay) infinite; }
+}
+@keyframes aurora-drift {
+  from { transform: translate3d(-3%, -4%, 0) rotate(-25deg) scale(0.95); opacity: 0.4; }
+  to { transform: translate3d(12%, 10%, 0) rotate(-12deg) scale(1.12); opacity: 0.85; }
+}
+@keyframes ambient-breathe {
+  from { transform: translate3d(0, 0, 0) scale(0.9); opacity: 0.45; }
+  to { transform: translate3d(35px, -25px, 0) scale(1.1); opacity: 0.75; }
+}
+@keyframes dust-drift {
+  0%, 100% { transform: translate3d(0, 12px, 0); opacity: 0; }
+  25% { opacity: 0.4; }
+  65% { opacity: 0.25; }
+  90% { transform: translate3d(var(--drift), -65px, 0); opacity: 0; }
+}
+@media (max-width: 640px) {
+  .app__aurora { filter: blur(32px); width: 100vw; height: 50vh; }
+  .app__particle:nth-child(n + 8) { display: none; }
+}
+
+/* A short streak followed by a long quiet interval keeps the sky calm. */
+.app__meteors { position: absolute; inset: 0; overflow: hidden; }
+.app__meteor {
+  position: absolute;
+  top: var(--meteor-top);
+  left: var(--meteor-left);
+  width: 160px;
+  height: 1px;
+  opacity: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.45) 65%, #e8f7ff);
+  transform: rotate(140deg);
+}
+.app__meteor::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -1px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #effaff;
+  box-shadow: 0 0 8px 2px rgba(125, 211, 252, 0.45);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .app__meteor { animation: meteor-crossing var(--meteor-period) linear var(--meteor-delay) infinite; }
+}
+@keyframes meteor-crossing {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(140deg); }
+  1% { opacity: 0.75; }
+  7% { opacity: 0; transform: translate3d(-55vw, 46vw, 0) rotate(140deg); }
+  100% { opacity: 0; transform: translate3d(-55vw, 46vw, 0) rotate(140deg); }
+}
+@media (max-width: 640px) {
+  .app__meteor { width: 100px; }
+  .app__meteor:nth-child(n + 3) { display: none; }
+}

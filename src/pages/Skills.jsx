@@ -1,6 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faRobot,
+  faPlug,
+  faCode,
+  faDatabase,
   faBrain,
   faChartLine,
   faDiagramProject,
@@ -30,6 +33,12 @@ const focusIcons = {
   "Agent Development": faDiagramProject,
   "Workflow Automation": faArrowsRotate,
   Agile: faArrowsRotate,
+  "Google ADK": faDiagramProject,
+  Gemini: faBrain,
+  "SAP RFC": faDatabase,
+  "Microsoft Graph": faDiagramProject,
+  "API Integration": faPlug,
+  JSON: faCode,
 };
 const devIcons = {
   "Spring Boot": "spring/spring-original.svg",

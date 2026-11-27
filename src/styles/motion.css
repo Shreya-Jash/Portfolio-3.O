@@ -1,0 +1,94 @@
+/* Cyan-to-gold signals echo the existing workflow grid. */
+@media (prefers-reduced-motion: no-preference) {
+  .section-heading::after {
+    content: "";
+    display: block;
+    width: 5rem;
+    height: 2px;
+    margin-top: 1.25rem;
+    background: linear-gradient(90deg, #7dd3fc, #f4d074, transparent);
+    transform-origin: left;
+  }
+  .section-heading.signal-arrived::after {
+    animation: signal-connect 900ms cubic-bezier(0.16, 1, 0.3, 1) both 180ms;
+  }
+  .home__title > span {
+    background-size: 200% 100%;
+    animation: spectrum-arrive 1800ms ease-out both;
+  }
+  .skills-group, .background-card, .experience-item, .home__portrait-card,
+  .form-con, .skill-tile, .home__focus-item {
+    transition: border-color 250ms ease, box-shadow 250ms ease, transform 300ms ease;
+  }
+  .home__button svg, .contact__email > svg:last-child {
+    transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .home__button:is(:hover, :focus-visible) svg,
+  .contact__email:is(:hover, :focus-visible) > svg:last-child {
+    transform: translateX(4px);
+  }
+  .form-con:focus-within {
+    border-color: rgba(125, 211, 252, 0.5);
+    box-shadow: 0 0 35px rgba(125, 211, 252, 0.07);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .skills-group:hover, .background-card:hover, .experience-item:hover,
+    .home__portrait-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(125, 211, 252, 0.4);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18), 0 0 25px rgba(125, 211, 252, 0.06);
+    }
+    .skill-tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244, 208, 116, 0.45);
+      box-shadow: 0 6px 20px rgba(244, 208, 116, 0.08);
+    }
+    .home__focus-item:hover { transform: translateX(5px); }
+  }
+}
+@keyframes signal-connect {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+@keyframes spectrum-arrive {
+  from { background-position: 100% 50%; }
+  to { background-position: 0% 50%; }
+}
+
+/* Reference-inspired light and particle accents, using the existing portrait. */
+.home__portrait-stage { position: relative; overflow: hidden; border-radius: 1rem; isolation: isolate; }
+.home__portrait-shine, .home__assembly { position: absolute; inset: 0; pointer-events: none; }
+.home__portrait-shine { opacity: 0; background: linear-gradient(125deg, transparent 35%, rgba(232, 247, 255, 0.22) 48%, rgba(244, 208, 116, 0.14) 52%, transparent 65%); }
+.home__assembly i { position: absolute; left: 50%; top: 50%; width: 3px; height: 3px; border-radius: 50%; background: #e0f4ff; opacity: 0; box-shadow: 0 0 8px rgba(125, 211, 252, 0.6); }
+@media (prefers-reduced-motion: no-preference) {
+  .home__portrait-card.signal-arrived .home__assembly i {
+    animation: portrait-dots 1400ms cubic-bezier(0.22, 1, 0.36, 1) var(--dot-delay) both;
+  }
+  .home__portrait-card.signal-arrived .home__portrait-shine {
+    animation: portrait-shine 1900ms ease-in-out 900ms both;
+  }
+  .home__portrait-card:hover .home__portrait-shine {
+    animation: portrait-shine 1900ms ease-in-out both;
+  }
+  .home__portrait-stage::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: radial-gradient(circle 180px at var(--light-x, 50%) var(--light-y, 50%), rgba(205, 239, 255, 0.17), transparent);
+    transition: opacity 400ms ease;
+  }
+  .home__portrait-stage.card-light-active::after { opacity: 1; }
+  .skills-group.card-light-active, .background-card.card-light-active, .experience-item.card-light-active {
+    background-image: radial-gradient(circle 260px at var(--light-x, 50%) var(--light-y, 50%), rgba(125, 211, 252, 0.09), transparent);
+  }
+}
+@keyframes portrait-dots {
+  0% { opacity: 0; transform: translate(var(--ring-x), var(--ring-y)) scale(0.5); }
+  20% { opacity: 0.7; transform: translate(var(--ring-x), var(--ring-y)) scale(1); }
+  75% { opacity: 0.35; }
+  100% { opacity: 0; transform: translate(var(--scatter-x), var(--scatter-y)) scale(0.3); }
+}
+@keyframes portrait-shine {
+  0% { opacity: 0; transform: translateX(-100%); }
+  25%, 60% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(100%); }
+}
+@media (max-width: 640px) { .home__assembly i:nth-child(2n) { display: none; } }
